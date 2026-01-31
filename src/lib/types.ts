@@ -12,7 +12,7 @@ export type Certification = {
   name: string;
   issuingBody: string;
   issueDate: string;
-  status: 'Verified' | 'Pending' | 'Rejected';
+  status: 'Verificado' | 'Pendiente' | 'Rechazado';
 };
 
 export type PortfolioItem = {
@@ -43,7 +43,7 @@ export type Project = {
   location: string;
   budget: string;
   postedDate: string;
-  status: 'Open' | 'In Progress' | 'Completed';
+  status: 'Abierto' | 'En Progreso' | 'Completado';
   requiredSkills: Skill[];
 };
 
@@ -70,5 +70,5 @@ export type CertificationVerification = {
   professionalAvatarUrl: string;
   certificationName: string;
   submittedDate: string;
-  status: 'Pending' | 'Verified' | 'Rejected';
+  status: 'Pendiente' | 'Verificado' | 'Rechazado';
 };

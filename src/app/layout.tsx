@@ -5,7 +5,7 @@ import { AppLayout } from '@/components/app-layout';
 
 export const metadata: Metadata = {
   title: 'TechConnect',
-  description: 'Connecting clients with certified professionals.',
+  description: 'Conectando clientes con profesionales certificados.',
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

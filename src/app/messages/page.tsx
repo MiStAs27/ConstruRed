@@ -23,7 +23,7 @@ export default function MessagesPage() {
     <div className="grid h-[calc(100vh-60px)] w-full grid-cols-[280px_1fr]">
       <div className="flex flex-col border-r bg-card">
         <div className="flex h-14 items-center border-b p-4">
-          <h2 className="font-semibold tracking-tight font-headline">Conversations</h2>
+          <h2 className="font-semibold tracking-tight font-headline">Conversaciones</h2>
         </div>
         <div className="flex-1 overflow-auto">
           <div className="p-2">
@@ -31,7 +31,7 @@ export default function MessagesPage() {
               <div className="relative">
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search messages..."
+                  placeholder="Buscar mensajes..."
                   className="w-full bg-background pl-8"
                 />
               </div>
@@ -142,7 +142,7 @@ export default function MessagesPage() {
         <div className="border-t bg-card p-4">
           <form className="relative">
             <Input
-              placeholder="Type your message..."
+              placeholder="Escribe tu mensaje..."
               className="pr-24"
             />
             <div className="absolute inset-y-0 right-0 flex items-center pr-2">
@@ -154,7 +154,7 @@ export default function MessagesPage() {
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent>
-                        <p>Attach file</p>
+                        <p>Adjuntar archivo</p>
                     </TooltipContent>
                 </Tooltip>
                 <Tooltip>
@@ -164,7 +164,7 @@ export default function MessagesPage() {
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent>
-                        <p>Use voice</p>
+                        <p>Usar voz</p>
                     </TooltipContent>
                 </Tooltip>
                 <Button type="submit" size="icon">

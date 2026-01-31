@@ -37,14 +37,14 @@ export default function ProfessionalsPage() {
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight font-headline">
-            Find Professionals
+            Encontrar Profesionales
           </h1>
           <p className="text-muted-foreground">
-            Browse and connect with top-rated certified experts.
+            Explora y conecta con expertos certificados de primera categoría.
           </p>
         </div>
         <Button asChild>
-          <Link href="/projects/new">Post a Project</Link>
+          <Link href="/projects/new">Publicar un Proyecto</Link>
         </Button>
       </div>
 
@@ -54,7 +54,7 @@ export default function ProfessionalsPage() {
             <div className="relative">
               <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search by skill or name..."
+                placeholder="Buscar por habilidad o nombre..."
                 className="pl-8 w-64"
               />
             </div>
@@ -63,25 +63,25 @@ export default function ProfessionalsPage() {
                 <Button variant="outline" className="gap-1">
                   <ListFilter className="h-3.5 w-3.5" />
                   <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                    Filter
+                    Filtrar
                   </span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
-                <DropdownMenuLabel>Filter by Trade</DropdownMenuLabel>
+                <DropdownMenuLabel>Filtrar por Oficio</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuCheckboxItem checked>
-                  Electrician
+                  Electricista
                 </DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Carpenter</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Painter</DropdownMenuCheckboxItem>
-                <DropdownMenuCheckboxItem>Plumber</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem>Carpintero</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem>Pintor</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem>Plomero</DropdownMenuCheckboxItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
           <TabsList>
-            <TabsTrigger value="grid">Grid</TabsTrigger>
-            <TabsTrigger value="map">Map</TabsTrigger>
+            <TabsTrigger value="grid">Cuadrícula</TabsTrigger>
+            <TabsTrigger value="map">Mapa</TabsTrigger>
           </TabsList>
         </div>
 
@@ -116,7 +116,7 @@ export default function ProfessionalsPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full">
-                    <Link href={`/professionals/${pro.id}`}>View Profile</Link>
+                    <Link href={`/professionals/${pro.id}`}>Ver Perfil</Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -129,8 +129,8 @@ export default function ProfessionalsPage() {
                     <div className="h-[600px] w-full bg-muted rounded-lg flex items-center justify-center">
                         <div className="text-center text-muted-foreground p-4">
                             <Map className="mx-auto h-12 w-12 mb-4"/>
-                            <h3 className="font-semibold text-lg font-headline">Map View Coming Soon</h3>
-                            <p>Geolocation features will be available here to help you find professionals near you.</p>
+                            <h3 className="font-semibold text-lg font-headline">Vista de Mapa Próximamente</h3>
+                            <p>Las funciones de geolocalización estarán disponibles aquí para ayudarte a encontrar profesionales cerca de ti.</p>
                         </div>
                     </div>
                 </CardContent>

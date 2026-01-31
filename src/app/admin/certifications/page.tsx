@@ -32,18 +32,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 export default function CertificationsPage() {
   const getStatusVariant = (status: string) => {
     switch (status) {
-      case 'Verified':
+      case 'Verificado':
         return 'default';
-      case 'Pending':
+      case 'Pendiente':
         return 'secondary';
-      case 'Rejected':
+      case 'Rechazado':
         return 'destructive';
       default:
         return 'outline';
     }
   };
 
-  const renderTable = (statusFilter?: 'Pending' | 'Verified' | 'Rejected') => {
+  const renderTable = (statusFilter?: 'Pendiente' | 'Verificado' | 'Rechazado') => {
     const items = statusFilter
       ? certificationVerifications.filter((c) => c.status === statusFilter)
       : certificationVerifications;
@@ -52,12 +52,12 @@ export default function CertificationsPage() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Professional</TableHead>
-            <TableHead>Certification</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Submitted</TableHead>
+            <TableHead>Profesional</TableHead>
+            <TableHead>Certificación</TableHead>
+            <TableHead>Estado</TableHead>
+            <TableHead>Enviado</TableHead>
             <TableHead>
-              <span className="sr-only">Actions</span>
+              <span className="sr-only">Acciones</span>
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -94,10 +94,10 @@ export default function CertificationsPage() {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                    <DropdownMenuItem>Verify</DropdownMenuItem>
-                    <DropdownMenuItem>Reject</DropdownMenuItem>
-                    <DropdownMenuItem>View Details</DropdownMenuItem>
+                    <DropdownMenuLabel>Acciones</DropdownMenuLabel>
+                    <DropdownMenuItem>Verificar</DropdownMenuItem>
+                    <DropdownMenuItem>Rechazar</DropdownMenuItem>
+                    <DropdownMenuItem>Ver Detalles</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>
@@ -113,30 +113,30 @@ export default function CertificationsPage() {
       <Card>
         <CardHeader>
           <CardTitle className="font-headline">
-            Certification Verification
+            Verificación de Certificación
           </CardTitle>
           <CardDescription>
-            Review and manage professional certification submissions.
+            Revisa y gestiona las solicitudes de certificación profesional.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="all">
             <TabsList>
-              <TabsTrigger value="all">All</TabsTrigger>
-              <TabsTrigger value="pending">Pending</TabsTrigger>
-              <TabsTrigger value="verified">Verified</TabsTrigger>
-              <TabsTrigger value="rejected">Rejected</TabsTrigger>
+              <TabsTrigger value="all">Todos</TabsTrigger>
+              <TabsTrigger value="pending">Pendiente</TabsTrigger>
+              <TabsTrigger value="verified">Verificado</TabsTrigger>
+              <TabsTrigger value="rejected">Rechazado</TabsTrigger>
             </TabsList>
             <TabsContent value="all">{renderTable()}</TabsContent>
-            <TabsContent value="pending">{renderTable('Pending')}</TabsContent>
-            <TabsContent value="verified">{renderTable('Verified')}</TabsContent>
-            <TabsContent value="rejected">{renderTable('Rejected')}</TabsContent>
+            <TabsContent value="pending">{renderTable('Pendiente')}</TabsContent>
+            <TabsContent value="verified">{renderTable('Verificado')}</TabsContent>
+            <TabsContent value="rejected">{renderTable('Rechazado')}</TabsContent>
           </Tabs>
         </CardContent>
         <CardFooter>
           <div className="text-xs text-muted-foreground">
-            Showing <strong>1-4</strong> of{' '}
-            <strong>{certificationVerifications.length}</strong> certifications
+            Mostrando <strong>1-4</strong> de{' '}
+            <strong>{certificationVerifications.length}</strong> certificaciones
           </div>
         </CardFooter>
       </Card>

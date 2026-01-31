@@ -34,57 +34,57 @@ export default function Dashboard() {
     <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
       <div className="flex items-center justify-between space-y-2">
         <h1 className="text-3xl font-bold tracking-tight font-headline">
-          Welcome Back, Alex!
+          ¡Bienvenido de nuevo, Alex!
         </h1>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Projects</CardTitle>
+            <CardTitle className="text-sm font-medium">Proyectos Activos</CardTitle>
             <Briefcase className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">5</div>
             <p className="text-xs text-muted-foreground">
-              +2 since last week
+              +2 desde la semana pasada
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Professionals Nearby
+              Profesionales Cercanos
             </CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">12</div>
             <p className="text-xs text-muted-foreground">
-              in your city
+              en tu ciudad
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Unread Messages</CardTitle>
+            <CardTitle className="text-sm font-medium">Mensajes no Leídos</CardTitle>
             <MessageSquare className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">3</div>
              <p className="text-xs text-muted-foreground">
-              from 2 conversations
+              de 2 conversaciones
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Approvals</CardTitle>
+            <CardTitle className="text-sm font-medium">Aprobaciones Pendientes</CardTitle>
             <Activity className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">2</div>
             <p className="text-xs text-muted-foreground">
-              certifications to verify
+              certificaciones por verificar
             </p>
           </CardContent>
         </Card>
@@ -93,14 +93,14 @@ export default function Dashboard() {
         <Card className="xl:col-span-2">
           <CardHeader className="flex flex-row items-center">
             <div className="grid gap-2">
-              <CardTitle className="font-headline">Recent Projects</CardTitle>
+              <CardTitle className="font-headline">Proyectos Recientes</CardTitle>
               <CardDescription>
-                An overview of your recently posted projects.
+                Un resumen de tus proyectos publicados recientemente.
               </CardDescription>
             </div>
             <Button asChild size="sm" className="ml-auto gap-1">
               <Link href="/projects">
-                View All
+                Ver Todos
                 <ChevronRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -109,9 +109,9 @@ export default function Dashboard() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Project</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Budget</TableHead>
+                  <TableHead>Proyecto</TableHead>
+                  <TableHead>Estado</TableHead>
+                  <TableHead className="text-right">Presupuesto</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -124,7 +124,7 @@ export default function Dashboard() {
                       </div>
                     </TableCell>
                     <TableCell>
-                      <Badge variant={project.status === 'Open' ? 'outline' : 'secondary'}>{project.status}</Badge>
+                      <Badge variant={project.status === 'Abierto' ? 'outline' : 'secondary'}>{project.status}</Badge>
                     </TableCell>
                     <TableCell className="text-right">{project.budget}</TableCell>
                   </TableRow>
@@ -135,9 +135,9 @@ export default function Dashboard() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle className="font-headline">Nearby Professionals</CardTitle>
+            <CardTitle className="font-headline">Profesionales Cercanos</CardTitle>
             <CardDescription>
-              Certified professionals available in your area.
+              Profesionales certificados disponibles en tu área.
             </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-6">
@@ -154,7 +154,7 @@ export default function Dashboard() {
                   </div>
                 </div>
                 <Button asChild variant="outline" size="sm">
-                  <Link href={`/professionals/${pro.id}`}>View</Link>
+                  <Link href={`/professionals/${pro.id}`}>Ver</Link>
                 </Button>
               </div>
             ))}
@@ -162,9 +162,9 @@ export default function Dashboard() {
         </Card>
          <Card className="xl:col-span-3">
           <CardHeader>
-            <CardTitle className="font-headline">Recent Messages</CardTitle>
+            <CardTitle className="font-headline">Mensajes Recientes</CardTitle>
             <CardDescription>
-              Catch up on your latest conversations.
+              Ponte al día con tus últimas conversaciones.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">

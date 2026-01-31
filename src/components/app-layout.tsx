@@ -41,11 +41,11 @@ import { cn } from '@/lib/utils';
 import { currentUser } from '@/lib/data';
 
 const navItems = [
-  { href: '/', label: 'Dashboard', icon: Home },
-  { href: '/projects', label: 'Projects', icon: Briefcase },
-  { href: '/professionals', label: 'Professionals', icon: Users },
-  { href: '/messages', label: 'Messages', icon: MessageSquare, badge: '3' },
-  { href: '/profile', label: 'Profile', icon: UserCircle },
+  { href: '/', label: 'Panel', icon: Home },
+  { href: '/projects', label: 'Proyectos', icon: Briefcase },
+  { href: '/professionals', label: 'Profesionales', icon: Users },
+  { href: '/messages', label: 'Mensajes', icon: MessageSquare, badge: '3' },
+  { href: '/profile', label: 'Perfil', icon: UserCircle },
   { href: '/admin/certifications', label: 'Admin', icon: ShieldCheck, badge: '2' },
 ];
 
@@ -166,7 +166,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="search"
-                  placeholder="Search projects or professionals..."
+                  placeholder="Buscar proyectos o profesionales..."
                   className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
                 />
               </div>
@@ -188,14 +188,14 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <Link href="/profile">Profile</Link>
+                <Link href="/profile">Perfil</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuItem>Soporte</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>Cerrar Sesión</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>

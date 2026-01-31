@@ -42,7 +42,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
         <div className="relative h-48 w-full bg-muted">
             <Image
                 src="https://picsum.photos/seed/header1/1200/300"
-                alt="Profile header"
+                alt="Encabezado del perfil"
                 fill
                 className="object-cover"
                 data-ai-hint="abstract texture"
@@ -64,14 +64,14 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
             </div>
              <div className="flex items-center pt-1 gap-1 text-sm text-amber-500">
                 <Star className="h-4 w-4 fill-current" />
-                <span><strong>{professional.rating}</strong> ({professional.reviewsCount} reviews)</span>
+                <span><strong>{professional.rating}</strong> ({professional.reviewsCount} reseñas)</span>
             </div>
           </div>
           <div className="ml-auto flex items-center gap-2">
             <Button variant="outline" asChild>
-                <Link href="/messages"><Mail className="mr-2 h-4 w-4" /> Message</Link>
+                <Link href="/messages"><Mail className="mr-2 h-4 w-4" /> Mensaje</Link>
             </Button>
-            <Button>Request Quote</Button>
+            <Button>Solicitar Cotización</Button>
           </div>
         </CardHeader>
       </Card>
@@ -80,7 +80,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
           <div className="md:col-span-2 space-y-8">
               <Card>
                   <CardHeader>
-                      <CardTitle className="font-headline">About</CardTitle>
+                      <CardTitle className="font-headline">Acerca de</CardTitle>
                   </CardHeader>
                   <CardContent>
                       <p className="text-muted-foreground">{professional.about}</p>
@@ -89,7 +89,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
 
               <Card>
                   <CardHeader>
-                      <CardTitle className="font-headline">Portfolio</CardTitle>
+                      <CardTitle className="font-headline">Portafolio</CardTitle>
                   </CardHeader>
                   <CardContent>
                       <Carousel className="w-full">
@@ -120,7 +120,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
           <div className="space-y-8">
               <Card>
                   <CardHeader>
-                      <CardTitle className="font-headline">Skills</CardTitle>
+                      <CardTitle className="font-headline">Habilidades</CardTitle>
                   </CardHeader>
                   <CardContent className="flex flex-wrap gap-2">
                       {professional.skills.map((skill) => (
@@ -130,7 +130,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
               </Card>
               <Card>
                   <CardHeader>
-                      <CardTitle className="font-headline">Certifications</CardTitle>
+                      <CardTitle className="font-headline">Certificaciones</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
                       {professional.certifications.map((cert) => (
@@ -139,7 +139,7 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
                                <div>
                                    <p className="font-semibold">{cert.name}</p>
                                    <p className="text-sm text-muted-foreground">
-                                       {cert.issuingBody} - {cert.status === 'Verified' ? `Issued ${cert.issueDate}` : `Status: ${cert.status}`}
+                                       {cert.issuingBody} - {cert.status === 'Verificado' ? `Emitido ${cert.issueDate}` : `Estado: ${cert.status}`}
                                    </p>
                                </div>
                            </div>

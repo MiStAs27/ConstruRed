@@ -36,15 +36,15 @@ import { useToast } from '@/hooks/use-toast';
 const projectFormSchema = z.object({
   title: z
     .string()
-    .min(5, { message: 'Project title must be at least 5 characters.' }),
+    .min(5, { message: 'El título del proyecto debe tener al menos 5 caracteres.' }),
   description: z
     .string()
-    .min(20, { message: 'Description must be at least 20 characters.' }),
+    .min(20, { message: 'La descripción debe tener al menos 20 caracteres.' }),
   location: z
     .string()
-    .min(2, { message: 'Location must be at least 2 characters.' }),
-  budget: z.string().min(1, { message: 'Please select a budget range.' }),
-  skills: z.string().min(1, { message: 'Please list required skills.' }),
+    .min(2, { message: 'La ubicación debe tener al menos 2 caracteres.' }),
+  budget: z.string().min(1, { message: 'Por favor, selecciona un rango de presupuesto.' }),
+  skills: z.string().min(1, { message: 'Por favor, enumera las habilidades requeridas.' }),
 });
 
 type ProjectFormValues = z.infer<typeof projectFormSchema>;
@@ -65,8 +65,8 @@ export default function NewProjectPage() {
   function onSubmit(data: ProjectFormValues) {
     console.log(data);
     toast({
-      title: 'Project Posted!',
-      description: "Your project has been successfully posted. Professionals will be notified.",
+      title: '¡Proyecto Publicado!',
+      description: "Tu proyecto ha sido publicado con éxito. Los profesionales serán notificados.",
     });
     form.reset();
   }
@@ -75,9 +75,9 @@ export default function NewProjectPage() {
     <div className="p-4 md:p-8">
       <Card className="max-w-3xl mx-auto">
         <CardHeader>
-          <CardTitle className="font-headline">Post a New Project</CardTitle>
+          <CardTitle className="font-headline">Publicar un Nuevo Proyecto</CardTitle>
           <CardDescription>
-            Describe your project to get quotes from certified professionals.
+            Describe tu proyecto para obtener cotizaciones de profesionales certificados.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -88,12 +88,12 @@ export default function NewProjectPage() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Project Title</FormLabel>
+                    <FormLabel>Título del Proyecto</FormLabel>
                     <FormControl>
-                      <Input placeholder="e.g., Full Kitchen Remodel" {...field} />
+                      <Input placeholder="ej., Remodelación Completa de Cocina" {...field} />
                     </FormControl>
                     <FormDescription>
-                      A clear, concise title will attract more professionals.
+                      Un título claro y conciso atraerá a más profesionales.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -105,10 +105,10 @@ export default function NewProjectPage() {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Project Description</FormLabel>
+                    <FormLabel>Descripción del Proyecto</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Describe the work you need done in detail. Include dimensions, materials, and any specific requirements."
+                        placeholder="Describe en detalle el trabajo que necesitas que se realice. Incluye dimensiones, materiales y cualquier requisito específico."
                         className="min-h-[150px]"
                         {...field}
                       />
@@ -124,9 +124,9 @@ export default function NewProjectPage() {
                   name="location"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Location</FormLabel>
+                      <FormLabel>Ubicación</FormLabel>
                       <FormControl>
-                        <Input placeholder="City, State" {...field} />
+                        <Input placeholder="Ciudad, Estado" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -137,22 +137,22 @@ export default function NewProjectPage() {
                   name="budget"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Budget Range</FormLabel>
+                      <FormLabel>Rango de Presupuesto</FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select a budget range" />
+                            <SelectValue placeholder="Selecciona un rango de presupuesto" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="<1k">Under $1,000</SelectItem>
+                          <SelectItem value="<1k">Menos de $1,000</SelectItem>
                           <SelectItem value="1k-5k">$1,000 - $5,000</SelectItem>
                           <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
                           <SelectItem value="15k-50k">$15,000 - $50,000</SelectItem>
-                          <SelectItem value=">50k">Over $50,000</SelectItem>
+                          <SelectItem value=">50k">Más de $50,000</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -166,15 +166,15 @@ export default function NewProjectPage() {
                 name="skills"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Required Skills</FormLabel>
+                    <FormLabel>Habilidades Requeridas</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="e.g., Electrical, Plumbing, Carpentry"
+                        placeholder="ej., Electricidad, Plomería, Carpintería"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      List the skills required, separated by commas.
+                      Enumera las habilidades requeridas, separadas por comas.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -182,7 +182,7 @@ export default function NewProjectPage() {
               />
 
               <CardFooter className="px-0">
-                <Button type="submit">Post Project</Button>
+                <Button type="submit">Publicar Proyecto</Button>
               </CardFooter>
             </form>
           </Form>

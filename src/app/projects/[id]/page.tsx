@@ -53,11 +53,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
-            <span>Posted on {project.postedDate}</span>
+            <span>Publicado el {project.postedDate}</span>
           </div>
           <div className="flex items-center gap-2">
             <Tag className="h-4 w-4" />
-            <span>Budget: {project.budget}</span>
+            <span>Presupuesto: {project.budget}</span>
           </div>
         </div>
         
@@ -66,11 +66,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="md:col-span-2 space-y-6">
             <div>
-                <h2 className="text-xl font-semibold font-headline mb-2">Project Description</h2>
+                <h2 className="text-xl font-semibold font-headline mb-2">Descripción del Proyecto</h2>
                 <p className="text-muted-foreground whitespace-pre-wrap">{project.description}</p>
             </div>
              <div>
-                <h2 className="text-xl font-semibold font-headline mb-2">Required Skills</h2>
+                <h2 className="text-xl font-semibold font-headline mb-2">Habilidades Requeridas</h2>
                  <div className="flex flex-wrap gap-2">
                     {project.requiredSkills.map((skill) => (
                         <Badge key={skill} variant="secondary">{skill}</Badge>
@@ -81,12 +81,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           <div className="space-y-6">
             <Card>
                 <CardHeader>
-                    <CardTitle className="font-headline">Actions</CardTitle>
+                    <CardTitle className="font-headline">Acciones</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2">
-                    <Button>I'm Interested</Button>
+                    <Button>Estoy Interesado</Button>
                     <Button variant="outline" asChild>
-                        <Link href={`/projects/${project.id}/quote/new`}>Submit a Quote</Link>
+                        <Link href={`/projects/${project.id}/quote/new`}>Enviar una Cotización</Link>
                     </Button>
                 </CardContent>
             </Card>
@@ -95,7 +95,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
               <CardHeader className="flex flex-row items-center gap-2">
                 <Users className="h-5 w-5" />
                 <CardTitle className="font-headline">
-                  Interested Professionals
+                  Profesionales Interesados
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -116,7 +116,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </div>
                 ))}
                 {professionals.length > 2 && <p className="text-sm text-center text-muted-foreground pt-2">
-                    + {professionals.length - 2} more
+                    + {professionals.length - 2} más
                     </p>}
               </CardContent>
             </Card>

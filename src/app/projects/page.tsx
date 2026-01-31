@@ -28,37 +28,37 @@ export default function ProjectsPage() {
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight font-headline">
-            Browse Projects
+            Explorar Proyectos
           </h1>
           <p className="text-muted-foreground">
-            Find opportunities that match your skills.
+            Encuentra oportunidades que coincidan con tus habilidades.
           </p>
         </div>
         <Button asChild>
-          <Link href="/projects/new">Post a Project</Link>
+          <Link href="/projects/new">Publicar un Proyecto</Link>
         </Button>
       </div>
 
       <div className="flex items-center gap-4 mb-6">
         <div className="relative flex-1">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input placeholder="Search by title or skill..." className="pl-8" />
+          <Input placeholder="Buscar por título o habilidad..." className="pl-8" />
         </div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="gap-1">
               <ListFilter className="h-3.5 w-3.5" />
               <span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
-                Filter
+                Filtrar
               </span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Filter by Status</DropdownMenuLabel>
+            <DropdownMenuLabel>Filtrar por Estado</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem checked>Open</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>In Progress</DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem>Completed</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked>Abierto</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem>En Progreso</DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem>Completado</DropdownMenuCheckboxItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
@@ -71,10 +71,10 @@ export default function ProjectsPage() {
                   <CardTitle className="font-headline text-lg leading-snug">
                     {project.name}
                   </CardTitle>
-                  <Badge variant={project.status === 'Open' ? 'outline' : 'secondary'}>{project.status}</Badge>
+                  <Badge variant={project.status === 'Abierto' ? 'outline' : 'secondary'}>{project.status}</Badge>
               </div>
               <CardDescription>
-                by {project.clientName} in {project.location}
+                por {project.clientName} en {project.location}
               </CardDescription>
             </CardHeader>
             <CardContent className="flex-grow">
@@ -82,7 +82,7 @@ export default function ProjectsPage() {
                 {project.description}
               </p>
               <div className="mt-4">
-                  <span className="font-semibold text-sm">Budget:</span> <span className="text-sm text-muted-foreground">{project.budget}</span>
+                  <span className="font-semibold text-sm">Presupuesto:</span> <span className="text-sm text-muted-foreground">{project.budget}</span>
               </div>
             </CardContent>
             <CardFooter className="flex-col items-start gap-4">
@@ -94,7 +94,7 @@ export default function ProjectsPage() {
                     ))}
                 </div>
               <Button asChild className="w-full">
-                <Link href={`/projects/${project.id}`}>View Details</Link>
+                <Link href={`/projects/${project.id}`}>Ver Detalles</Link>
               </Button>
             </CardFooter>
           </Card>

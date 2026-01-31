@@ -36,15 +36,15 @@ import { projects } from '@/lib/data';
 import { notFound } from 'next/navigation';
 
 const lineItemSchema = z.object({
-  description: z.string().min(1, 'Description is required.'),
-  quantity: z.coerce.number().min(0, 'Must be positive.'),
-  unitPrice: z.coerce.number().min(0, 'Must be positive.'),
+  description: z.string().min(1, 'La descripción es requerida.'),
+  quantity: z.coerce.number().min(0, 'Debe ser positivo.'),
+  unitPrice: z.coerce.number().min(0, 'Debe ser positivo.'),
 });
 
 const quoteFormSchema = z.object({
-  lineItems: z.array(lineItemSchema).min(1, 'At least one line item is required.'),
+  lineItems: z.array(lineItemSchema).min(1, 'Se requiere al menos un artículo.'),
   notes: z.string().optional(),
-  estimatedDuration: z.string().min(1, 'Duration is required.'),
+  estimatedDuration: z.string().min(1, 'La duración es requerida.'),
 });
 
 type QuoteFormValues = z.infer<typeof quoteFormSchema>;
@@ -84,8 +84,8 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
     <div className="p-4 md:p-8">
       <Card className="max-w-4xl mx-auto">
         <CardHeader>
-          <CardTitle className="font-headline">Create Quotation</CardTitle>
-          <CardDescription>For project: "{project.name}"</CardDescription>
+          <CardTitle className="font-headline">Crear Cotización</CardTitle>
+          <CardDescription>Para el proyecto: "{project.name}"</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -94,9 +94,9 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead className="w-[50%]">Description</TableHead>
-                      <TableHead>Quantity</TableHead>
-                      <TableHead>Unit Price</TableHead>
+                      <TableHead className="w-[50%]">Descripción</TableHead>
+                      <TableHead>Cantidad</TableHead>
+                      <TableHead>Precio Unitario</TableHead>
                       <TableHead>Total</TableHead>
                       <TableHead></TableHead>
                     </TableRow>
@@ -111,7 +111,7 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Input placeholder="E.g., Cabinet Installation" {...field} />
+                                  <Input placeholder="Ej., Instalación de Gabinetes" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -172,7 +172,7 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                 className="mt-2"
                 onClick={() => append({ description: '', quantity: 1, unitPrice: 0 })}
               >
-                <PlusCircle className="mr-2 h-4 w-4" /> Add Item
+                <PlusCircle className="mr-2 h-4 w-4" /> Añadir Artículo
               </Button>
               
               <div className="flex justify-end">
@@ -182,7 +182,7 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                         <span>${subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between">
-                        <span className="text-muted-foreground">Tax (8%)</span>
+                        <span className="text-muted-foreground">Impuesto (8%)</span>
                         <span>${tax.toFixed(2)}</span>
                     </div>
                      <div className="flex justify-between font-semibold text-lg">
@@ -197,9 +197,9 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                 name="estimatedDuration"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Estimated Duration</FormLabel>
+                    <FormLabel>Duración Estimada</FormLabel>
                     <FormControl>
-                      <Input placeholder="E.g., 2-3 weeks" {...field} />
+                      <Input placeholder="Ej., 2-3 semanas" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -211,10 +211,10 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
                 name="notes"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Notes or Terms</FormLabel>
+                    <FormLabel>Notas o Términos</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Add any additional notes, terms, or payment schedule."
+                        placeholder="Añade cualquier nota adicional, términos o calendario de pagos."
                         {...field}
                       />
                     </FormControl>
@@ -224,7 +224,7 @@ export default function NewQuotePage({ params }: { params: { id: string } }) {
               />
 
               <CardFooter className="px-0">
-                <Button type="submit">Send Quotation</Button>
+                <Button type="submit">Enviar Cotización</Button>
               </CardFooter>
             </form>
           </Form>
