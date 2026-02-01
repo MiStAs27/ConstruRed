@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { professionals } from '@/lib/data';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import {
   Carousel,
   CarouselContent,
@@ -31,25 +32,27 @@ type ProfessionalPageProps = {
 
 export default function ProfessionalPage({ params }: ProfessionalPageProps) {
   const professional = professionals.find((p) => p.id === params.id);
+  const headerImage = PlaceHolderImages.find(img => img.id === 'profile-header-1');
+
 
   if (!professional) {
     notFound();
   }
 
   return (
-    <div className="p-4 md:p-8 space-y-8">
+    <div className="space-y-8">
       <Card className="overflow-hidden">
         <div className="relative h-48 w-full bg-muted">
-            <Image
-                src="https://picsum.photos/seed/header1/1200/300"
+           {headerImage && <Image
+                src={headerImage.imageUrl}
                 alt="Encabezado del perfil"
                 fill
                 className="object-cover"
-                data-ai-hint="abstract texture"
-            />
+                data-ai-hint={headerImage.imageHint}
+            />}
         </div>
         <CardHeader className="flex flex-col items-start gap-4 md:flex-row p-6">
-          <Avatar className="h-28 w-28 -mt-20 border-4 border-card">
+          <Avatar className="h-28 w-28 -mt-20 border-4 border-background bg-background">
             <AvatarImage src={professional.avatarUrl} alt={professional.name} />
             <AvatarFallback>{professional.name.charAt(0)}</AvatarFallback>
           </Avatar>
@@ -99,9 +102,9 @@ export default function ProfessionalPage({ params }: ProfessionalPageProps) {
                               <div className="p-1">
                                 <Card>
                                   <CardContent className="relative flex aspect-video items-center justify-center p-0 overflow-hidden rounded-lg">
-                                    <Image src={item.imageUrl} alt={item.title} fill className="object-cover" data-ai-hint={item.imageHint}/>
+                                    <Image src={item.imageUrl} alt={item.title} fill className="object-cover transition-transform duration-300 hover:scale-105" data-ai-hint={item.imageHint}/>
                                   </CardContent>
-                                  <div className="p-4">
+                                  <div className="p-4 bg-background">
                                       <h3 className="font-semibold">{item.title}</h3>
                                       <p className="text-sm text-muted-foreground">{item.description}</p>
                                   </div>

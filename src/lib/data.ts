@@ -5,13 +5,16 @@ import type {
   Conversation,
   CertificationVerification,
 } from '@/lib/types';
+import { PlaceHolderImages } from './placeholder-images';
+
+const getImage = (id: string) => PlaceHolderImages.find(img => img.id === id)?.imageUrl || `https://picsum.photos/seed/${id}/200/200`;
 
 export const professionals: Professional[] = [
   {
     id: '1',
     name: 'Sarah Chen',
     email: 'sarah.chen@example.com',
-    avatarUrl: 'https://picsum.photos/seed/p1/200/200',
+    avatarUrl: getImage('avatar-1'),
     role: 'Maestra Electricista',
     location: 'San Francisco, CA',
     about:
@@ -31,14 +34,14 @@ export const professionals: Professional[] = [
         id: 'p1',
         title: 'Iluminación de Cocina Moderna',
         description: 'Revisión completa del sistema de iluminación de la cocina con tiras de LED y controles inteligentes.',
-        imageUrl: 'https://picsum.photos/seed/work1/600/400',
+        imageUrl: getImage('portfolio-1'),
         imageHint: 'cocina moderna',
       },
       {
         id: 'p4',
         title: 'Cableado de Hogar Inteligente',
         description: 'Cableado estructurado para un proyecto de nueva construcción, permitiendo la automatización completa del hogar.',
-        imageUrl: 'https://picsum.photos/seed/work4/600/400',
+        imageUrl: getImage('portfolio-4'),
         imageHint: 'cableado electrico',
       },
     ],
@@ -49,7 +52,7 @@ export const professionals: Professional[] = [
     id: '2',
     name: 'David Lee',
     email: 'david.lee@example.com',
-    avatarUrl: 'https://picsum.photos/seed/p2/200/200',
+    avatarUrl: getImage('avatar-2'),
     role: 'Carpintero Principal y Constructor',
     location: 'Austin, TX',
     about:
@@ -76,7 +79,7 @@ export const professionals: Professional[] = [
         id: 'p2',
         title: 'Terraza de Secuoya con Pérgola',
         description: 'Una terraza de secuoya de varios niveles diseñada para el entretenimiento al aire libre.',
-        imageUrl: 'https://picsum.photos/seed/work2/600/400',
+        imageUrl: getImage('portfolio-2'),
         imageHint: 'terraza de madera',
       },
     ],
@@ -87,7 +90,7 @@ export const professionals: Professional[] = [
     id: '3',
     name: 'Maria Garcia',
     email: 'maria.garcia@example.com',
-    avatarUrl: 'https://picsum.photos/seed/p3/200/200',
+    avatarUrl: getImage('avatar-3'),
     role: 'Pintora de Interiores y Exteriores',
     location: 'Miami, FL',
     about:
@@ -99,7 +102,7 @@ export const professionals: Professional[] = [
         id: 'p5',
         title: 'Repintado Interior Completo de Casa',
         description: 'Actualicé una casa de 3 dormitorios con una paleta de colores moderna y neutra.',
-        imageUrl: 'https://picsum.photos/seed/work5/600/400',
+        imageUrl: getImage('portfolio-5'),
         imageHint: 'sala de estar',
       },
     ],
@@ -195,7 +198,7 @@ export const certificationVerifications: CertificationVerification[] = [
       id: 'v1',
       professionalId: '2',
       professionalName: 'David Lee',
-      professionalAvatarUrl: 'https://picsum.photos/seed/p2/200/200',
+      professionalAvatarUrl: getImage('avatar-2'),
       certificationName: 'Construcción OSHA 30 Horas',
       submittedDate: '2024-05-18',
       status: 'Pendiente',
@@ -204,7 +207,7 @@ export const certificationVerifications: CertificationVerification[] = [
       id: 'v2',
       professionalId: '1',
       professionalName: 'Sarah Chen',
-      professionalAvatarUrl: 'https://picsum.photos/seed/p1/200/200',
+      professionalAvatarUrl: getImage('avatar-1'),
       certificationName: 'Técnico Avanzado en Hogares Inteligentes',
       submittedDate: '2024-05-17',
       status: 'Pendiente',
@@ -213,7 +216,7 @@ export const certificationVerifications: CertificationVerification[] = [
       id: 'v3',
       professionalId: '4',
       professionalName: 'Kenji Tanaka',
-      professionalAvatarUrl: 'https://picsum.photos/seed/p4/200/200',
+      professionalAvatarUrl: getImage('avatar-4'),
       certificationName: 'Plomero Certificado',
       submittedDate: '2024-05-12',
       status: 'Verificado',
@@ -222,7 +225,7 @@ export const certificationVerifications: CertificationVerification[] = [
       id: 'v4',
       professionalId: '3',
       professionalName: 'Maria Garcia',
-      professionalAvatarUrl: 'https://picsum.photos/seed/p3/200/200',
+      professionalAvatarUrl: getImage('avatar-3'),
       certificationName: 'Empresa Certificada en Seguridad con Plomo',
       submittedDate: '2024-04-25',
       status: 'Rechazado',
@@ -233,7 +236,7 @@ export const currentUser = {
   id: 'user1',
   name: 'Alex Johnson',
   email: 'alex.j@example.com',
-  avatarUrl: 'https://picsum.photos/seed/p5/200/200',
+  avatarUrl: getImage('avatar-5'),
 };
 
 export const recentProjects = projects.slice(0, 3);
@@ -242,14 +245,14 @@ export const recentMessages = [
     {
         id: "1",
         name: "Sarah Chen",
-        avatarUrl: "https://picsum.photos/seed/p1/200/200",
+        avatarUrl: getImage('avatar-1'),
         message: "Hola Alex, estoy disponible para una llamada mañana a las 2 PM PST para discutir el proyecto de la cocina. ¿Te parece bien?",
         time: "hace 2 horas",
     },
     {
         id: "2",
         name: "David Lee",
-        avatarUrl: "https://picsum.photos/seed/p2/200/200",
+        avatarUrl: getImage('avatar-2'),
         message: "Solo para confirmar que he enviado mi cotización para la construcción de la terraza. Avísame si tienes alguna pregunta.",
         time: "hace 1 día",
     }

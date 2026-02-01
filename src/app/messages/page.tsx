@@ -20,9 +20,9 @@ export default function MessagesPage() {
   const selectedConversation = conversations[0];
 
   return (
-    <div className="grid h-[calc(100vh-60px)] w-full grid-cols-[280px_1fr]">
-      <div className="flex flex-col border-r bg-card">
-        <div className="flex h-14 items-center border-b p-4">
+    <div className="grid h-[calc(100vh-100px)] w-full grid-cols-[280px_1fr] bg-background rounded-lg border">
+      <div className="flex flex-col border-r bg-muted/40">
+        <div className="flex h-14 items-center border-b px-4">
           <h2 className="font-semibold tracking-tight font-headline">Conversaciones</h2>
         </div>
         <div className="flex-1 overflow-auto">
@@ -42,8 +42,8 @@ export default function MessagesPage() {
               <button
                 key={conv.id}
                 className={cn(
-                  'flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-all hover:bg-muted',
-                  index === 0 && 'bg-muted'
+                  'flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-all hover:bg-accent',
+                  index === 0 && 'bg-accent'
                 )}
               >
                 <Avatar className="h-10 w-10">
@@ -72,7 +72,7 @@ export default function MessagesPage() {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex h-14 items-center border-b bg-card p-4">
+        <div className="flex h-14 items-center border-b bg-background p-4">
           <div className="flex items-center gap-3">
             <Avatar className="h-8 w-8">
               <AvatarImage
@@ -119,7 +119,7 @@ export default function MessagesPage() {
                     'max-w-xs rounded-lg p-3 text-sm md:max-w-md',
                     message.senderId === currentUser.id
                       ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted'
+                      : 'bg-card border'
                   )}
                 >
                   <p>{message.text}</p>
@@ -139,7 +139,7 @@ export default function MessagesPage() {
             ))}
           </div>
         </div>
-        <div className="border-t bg-card p-4">
+        <div className="border-t bg-background p-4">
           <form className="relative">
             <Input
               placeholder="Escribe tu mensaje..."

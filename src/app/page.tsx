@@ -6,6 +6,7 @@ import {
   MapPin,
   MessageSquare,
   Users,
+  ArrowUpRight
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -31,11 +32,14 @@ import { recentProjects, nearbyProfessionals, recentMessages } from '@/lib/data'
 
 export default function Dashboard() {
   return (
-    <div className="flex-1 space-y-4 p-4 md:p-8 pt-6">
+    <div className="flex-1 space-y-6">
       <div className="flex items-center justify-between space-y-2">
         <h1 className="text-3xl font-bold tracking-tight font-headline">
           ¡Bienvenido de nuevo, Alex!
         </h1>
+        <div className="flex items-center space-x-2">
+            <Button>Publicar un Proyecto</Button>
+        </div>
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Card>
@@ -45,7 +49,8 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">5</div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground flex items-center gap-1">
+              <ArrowUpRight className="h-3 w-3 text-green-500"/>
               +2 desde la semana pasada
             </p>
           </CardContent>
@@ -89,7 +94,7 @@ export default function Dashboard() {
           </CardContent>
         </Card>
       </div>
-      <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-6 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
         <Card className="xl:col-span-2">
           <CardHeader className="flex flex-row items-center">
             <div className="grid gap-2">

@@ -30,7 +30,7 @@ import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export default function CertificationsPage() {
-  const getStatusVariant = (status: string) => {
+  const getStatusVariant = (status: string): 'default' | 'secondary' | 'destructive' | 'outline' => {
     switch (status) {
       case 'Verificado':
         return 'default';
@@ -75,7 +75,7 @@ export default function CertificationsPage() {
                       {verification.professionalName.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
-                  {verification.professionalName}
+                  <div className="font-medium">{verification.professionalName}</div>
                 </div>
               </TableCell>
               <TableCell>{verification.certificationName}</TableCell>
@@ -109,37 +109,35 @@ export default function CertificationsPage() {
   };
 
   return (
-    <div className="p-4 md:p-8">
-      <Card>
-        <CardHeader>
-          <CardTitle className="font-headline">
-            Verificación de Certificación
-          </CardTitle>
-          <CardDescription>
-            Revisa y gestiona las solicitudes de certificación profesional.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Tabs defaultValue="all">
-            <TabsList>
-              <TabsTrigger value="all">Todos</TabsTrigger>
-              <TabsTrigger value="pending">Pendiente</TabsTrigger>
-              <TabsTrigger value="verified">Verificado</TabsTrigger>
-              <TabsTrigger value="rejected">Rechazado</TabsTrigger>
-            </TabsList>
-            <TabsContent value="all">{renderTable()}</TabsContent>
-            <TabsContent value="pending">{renderTable('Pendiente')}</TabsContent>
-            <TabsContent value="verified">{renderTable('Verificado')}</TabsContent>
-            <TabsContent value="rejected">{renderTable('Rechazado')}</TabsContent>
-          </Tabs>
-        </CardContent>
-        <CardFooter>
-          <div className="text-xs text-muted-foreground">
-            Mostrando <strong>1-4</strong> de{' '}
-            <strong>{certificationVerifications.length}</strong> certificaciones
-          </div>
-        </CardFooter>
-      </Card>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle className="font-headline">
+          Verificación de Certificación
+        </CardTitle>
+        <CardDescription>
+          Revisa y gestiona las solicitudes de certificación profesional.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Tabs defaultValue="all">
+          <TabsList className="grid w-full grid-cols-4">
+            <TabsTrigger value="all">Todos</TabsTrigger>
+            <TabsTrigger value="pending">Pendiente</TabsTrigger>
+            <TabsTrigger value="verified">Verificado</TabsTrigger>
+            <TabsTrigger value="rejected">Rechazado</TabsTrigger>
+          </TabsList>
+          <TabsContent value="all">{renderTable()}</TabsContent>
+          <TabsContent value="pending">{renderTable('Pendiente')}</TabsContent>
+          <TabsContent value="verified">{renderTable('Verificado')}</TabsContent>
+          <TabsContent value="rejected">{renderTable('Rechazado')}</TabsContent>
+        </Tabs>
+      </CardContent>
+      <CardFooter>
+        <div className="text-xs text-muted-foreground">
+          Mostrando <strong>1-4</strong> de{' '}
+          <strong>{certificationVerifications.length}</strong> certificaciones
+        </div>
+      </CardFooter>
+    </Card>
   );
 }

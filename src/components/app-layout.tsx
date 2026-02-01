@@ -13,6 +13,7 @@ import {
   MessageSquare,
   ShieldCheck,
   UserCircle,
+  Menu,
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -45,7 +46,6 @@ const navItems = [
   { href: '/projects', label: 'Proyectos', icon: Briefcase },
   { href: '/professionals', label: 'Profesionales', icon: Users },
   { href: '/messages', label: 'Mensajes', icon: MessageSquare, badge: '3' },
-  { href: '/profile', label: 'Perfil', icon: UserCircle },
   { href: '/admin/certifications', label: 'Admin', icon: ShieldCheck, badge: '2' },
 ];
 
@@ -54,7 +54,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-card md:block">
+      <div className="hidden border-r bg-muted/40 md:block">
         <div className="flex h-full max-h-screen flex-col gap-2">
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link
@@ -71,10 +71,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 strokeLinejoin="round"
                 className="h-6 w-6 text-primary"
               >
-                <path d="M12.22 2h-4.44l-2.43 2.43a1 1 0 0 0 0 1.41l8.89 8.89a1 1 0 0 0 1.41 0l2.43-2.43h0Z" />
-                <path d="m22 2-2.43 2.43a1 1 0 0 1-1.41 0l-8.89-8.89a1 1 0 0 1 0-1.41L11.78 2h0Z" />
-                <path d="M11 22 2 13" />
-                <path d="M22 11 13 2" />
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
               </svg>
               <span className="">TechConnect</span>
             </Link>
@@ -87,13 +84,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                   href={href}
                   className={cn(
                     'flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary',
-                    pathname === href && 'bg-muted text-primary'
+                    (pathname === href || (href !== '/' && pathname.startsWith(href))) && 'bg-muted text-primary'
                   )}
                 >
                   <Icon className="h-4 w-4" />
                   {label}
                   {badge && (
-                    <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                    <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                       {badge}
                     </Badge>
                   )}
@@ -101,10 +98,25 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
               ))}
             </nav>
           </div>
+           <div className="mt-auto p-4">
+            <Card>
+              <CardHeader className="p-2 pt-0 md:p-4">
+                <CardTitle>¿Necesitas Ayuda?</CardTitle>
+                <CardDescription>
+                  Contacta a nuestro equipo de soporte para obtener ayuda con la plataforma.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
+                <Button size="sm" className="w-full">
+                  Contactar Soporte
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-card px-4 lg:h-[60px] lg:px-6">
+      <div className="flex flex-col bg-muted/40">
+        <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:h-[60px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -112,7 +124,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                 size="icon"
                 className="shrink-0 md:hidden"
               >
-                <Package2 className="h-5 w-5" />
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
@@ -132,10 +144,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     strokeLinejoin="round"
                     className="h-6 w-6 text-primary"
                   >
-                    <path d="M12.22 2h-4.44l-2.43 2.43a1 1 0 0 0 0 1.41l8.89 8.89a1 1 0 0 0 1.41 0l2.43-2.43h0Z" />
-                    <path d="m22 2-2.43 2.43a1 1 0 0 1-1.41 0l-8.89-8.89a1 1 0 0 1 0-1.41L11.78 2h0Z" />
-                    <path d="M11 22 2 13" />
-                    <path d="M22 11 13 2" />
+                     <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+
                   </svg>
                   <span className="font-headline">TechConnect</span>
                 </Link>
@@ -145,13 +155,13 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
                     href={href}
                     className={cn(
                       'mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground',
-                      pathname === href && 'bg-muted text-foreground'
+                      (pathname === href || (href !== '/' && pathname.startsWith(href))) && 'bg-muted text-foreground'
                     )}
                   >
                     <Icon className="h-5 w-5" />
                     {label}
                     {badge && (
-                      <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                      <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                         {badge}
                       </Badge>
                     )}
@@ -199,7 +209,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             </DropdownMenuContent>
           </DropdownMenu>
         </header>
-        <main className="flex flex-1 flex-col gap-4 bg-background">
+        <main className="flex flex-1 flex-col gap-4 bg-muted/40 p-4 sm:p-6">
           {children}
         </main>
       </div>
